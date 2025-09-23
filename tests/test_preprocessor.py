@@ -8,7 +8,7 @@ class TestPreprocessor(TestCase):
     def test_get_words(self):
         with NamedTemporaryFile(mode="w+", delete=False) as tmp:
             tmp.write(
-                "Hello, World. (.).\n\n'These are not words. Are they?' \tasked the \r\n masked warrior. \"It's OK!\""
+                " ! Hello, World. (.).\n\n'These are not words. Are they?' \tasked the \r\n masked warrior. \"It's OK!\""
             )
             tmp_name = tmp.name
 
@@ -17,6 +17,7 @@ class TestPreprocessor(TestCase):
         self.assertListEqual(
             words,
             [
+                "!",
                 "Hello",
                 ",",
                 "World",
