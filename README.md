@@ -1,4 +1,4 @@
-# Bigram Markov Chain Text Generator
+# Dissociated Press
 
 This a _bigram_ (order-2) Markov Chain Sentence Generator.
 
