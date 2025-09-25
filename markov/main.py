@@ -2,6 +2,7 @@ from argparse import ArgumentParser
 import fileinput
 from helpers import build_graph_bigram, generate_output
 from preprocessor import get_words
+import sys
 
 
 def main():
@@ -21,6 +22,10 @@ def main():
 
     with fileinput.input(files=("-",)) as corpus:
         words = get_words(corpus)
+
+    if not words:
+        sys.stderr.write("Error: received an empty file\n")
+        sys.exit(1)
 
     word_network = build_graph_bigram(words)
 
