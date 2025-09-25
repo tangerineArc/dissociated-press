@@ -1,7 +1,7 @@
 import random
 
 
-def _normalize_graph_weights(
+def normalize_graph_weights(
     word_graph: dict[str, dict[str, int]],
 ) -> dict[str, dict[str, float]]:
     normalized_graph: dict[str, dict[str, float]] = {}
@@ -23,7 +23,7 @@ def build_graph_bigram(words: list[str]) -> dict[str, dict[str, float]]:
         word_network[word].setdefault(next_word, 0)
         word_network[word][next_word] += 1
 
-    normalized_graph = _normalize_graph_weights(word_network)
+    normalized_graph = normalize_graph_weights(word_network)
     return normalized_graph
 
 
